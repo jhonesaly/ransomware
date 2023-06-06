@@ -3,9 +3,9 @@ import pyaes
 
 def decrypt(file_name):
     ## abrir o arquivo criptografado
-    file = open(file_name, "rb")
-    file_data = file.read()
-    file.close()
+    with open(file_name, "rb") as file:
+        file_data = file.read()
+        file.close()
 
     ## chave para descriptografia
     key = b"senharesgate1111"
@@ -13,7 +13,7 @@ def decrypt(file_name):
     decrypt_data = aes.decrypt(file_data)
 
     ## criar o arquivo descriptografado
-    new_file = file.replace(".crypted", "")
+    new_file = file_name.replace(".crypted", "")
     new_file = open(f'{new_file}', "wb")
     new_file.write(decrypt_data)
     new_file.close()
